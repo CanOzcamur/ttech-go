@@ -1,1 +1,14 @@
-<p>user-page works!</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="row align-self-center">
+            <div class="col">
+                <div class="input-group">
+                    <input #phone type="text" class="form-control" id="inlineFormInputGroup" placeholder="5327770123" >
+                </div>
+            </div>
+            <div class="col">
+                <a href="/package" type="submit" class="btn btn-primary" (click)="packageSearch(phone.value)">Paketleri Görüntüle</a>
+            </div>
+        </div>
+    </div>
+</div>

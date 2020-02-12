@@ -12,4 +12,8 @@ export class UserPageComponent implements OnInit {
   ngOnInit() {
   }
 
+  packageSearch(phoneNumber: string){
+    localStorage.setItem('phoneNumber', phoneNumber);
+  }
+
 }
