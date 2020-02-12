@@ -2,11 +2,9 @@ import { Package } from './package';
 import { User } from './user';
 
 export class Checkout {
-    user: User;
-    package: Package[];
+    packages: Package[];
 
-    constructor(user: User, packages: Package[]) {
-        this.user = user;
-        this.package = packages;
+    constructor(packages: Package[]) {
+        this.packages = packages;
     }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CheckoutDataService } from 'src/app/data/checkout-data.service';
+import { Checkout } from 'src/app/classes/checkout';
 
 @Component({
   selector: 'app-checkout-page',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckoutPageComponent implements OnInit {
 
-  constructor() { }
+  checkout: Checkout;
+
+  constructor(private checkoutDataService: CheckoutDataService) { }
 
   ngOnInit() {
+    this.checkoutDataService.currentMessage.subscribe(message => this.checkout = message);
+
   }
 
 }

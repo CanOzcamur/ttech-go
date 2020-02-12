@@ -10,6 +10,7 @@ import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.compo
 import { PageNotFoundPageComponent } from './pages/page-not-found-page/page-not-found-page.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
 import { FooterComponent } from './pages/footer/footer.component';
+import { CheckoutDataService } from './data/checkout-data.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { FooterComponent } from './pages/footer/footer.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [CheckoutDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

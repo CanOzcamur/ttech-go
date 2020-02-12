@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PackagePageService } from './package-page.service';
 import { User } from 'src/app/classes/user';
 import { Package } from 'src/app/classes/package';
+import { Checkout } from 'src/app/classes/checkout';
+import { CheckoutDataService } from 'src/app/data/checkout-data.service';
 
 @Component({
   selector: 'app-package-page',
@@ -12,9 +14,9 @@ export class PackagePageComponent implements OnInit {
   phoneNumber: string;
   userPackages: User[];
   packages: Package[];
-  flipped = false;
+  checkout: Checkout;
 
-  constructor(private packagePageService: PackagePageService) { }
+  constructor(private packagePageService: PackagePageService, private checkoutDataService: CheckoutDataService) { }
 
   ngOnInit() {
     this.phoneNumber = localStorage.getItem("phoneNumber")
@@ -25,8 +27,10 @@ export class PackagePageComponent implements OnInit {
     });
   }
 
-  flipIt() {
-    this.flipped = !this.flipped;
+  addToCheckout(packages: Package) {
+    if(!this.checkout.packages.includes(packages)){
+      this.checkout.packages.push(packages);
+    }
+    this.checkoutDataService.changeMessage(this.checkout);
   }
-
 }
