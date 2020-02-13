@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CheckoutDataService } from 'src/app/data/checkout-data.service';
+import { Checkout } from 'src/app/classes/checkout';
 
 @Component({
   selector: 'app-navbar',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
-  constructor() { }
+  checkout: Checkout;
+  checkoutLength: number = 0;
+  constructor(private checkoutDataService: CheckoutDataService) { }
 
   ngOnInit() {
+    this.checkoutDataService.currentMessage.subscribe(message => this.checkout = message);
+    this.checkoutLength = this.checkout.packages.length;
   }
 
 }
