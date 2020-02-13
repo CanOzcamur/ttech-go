@@ -1,13 +1,14 @@
 <div class="container-fluid" style="overflow-x: overlay">
     <div class="d-flex flex-row flex-nowrap">
-        <div *ngFor="let user of packages">
+        <div *ngFor="let package of packages">
             <div class="card">
                 <div class="content">
                     <div class="front">
-                        {{user.name}}
+                        {{package.name}}
                     </div>
                     <div class="back">
-                        {{user.price}}
+                        {{package.price}}
+                        <button id="checkoutIt" name="checkout" class="btn btn-info btn-sm"><i class="fas fa-shopping-cart" (click)="addToCheckout(package)"></i></button>
                     </div>
                 </div>
             </div>

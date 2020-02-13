@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,14 @@ import { CheckoutDataService } from './data/checkout-data.service';
 import { PackageCardComponent } from './components/package-card/package-card.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { TotalChartPriceComponent } from './components/total-chart-price/total-chart-price.component';
+
+export function setupLocalStorageFactory(checkoutDataService: CheckoutDataService): Function {
+
+  if (localStorage.getItem('checkout') !== null) {
+    checkoutDataService.changeMessage(JSON.parse(localStorage.getItem('checkout')));
+  }
+  return () => { };
+}
 
 @NgModule({
   declarations: [
@@ -33,7 +41,13 @@ import { TotalChartPriceComponent } from './components/total-chart-price/total-c
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [CheckoutDataService],
+  providers: [CheckoutDataService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: setupLocalStorageFactory,
+      deps: [CheckoutDataService],
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

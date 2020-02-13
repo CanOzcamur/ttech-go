@@ -13,8 +13,12 @@ export class NavbarComponent implements OnInit {
   constructor(private checkoutDataService: CheckoutDataService) { }
 
   ngOnInit() {
-    this.checkoutDataService.currentMessage.subscribe(message => this.checkout = message);
-    this.checkoutLength = this.checkout.packages.length;
+    this.checkoutDataService.currentMessage.subscribe(message => {
+      this.checkout = message
+      if (this.checkout != null) {
+        this.checkoutLength = this.checkout.packages.length;
+      }
+    });
   }
 
 }

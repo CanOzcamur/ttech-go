@@ -14,11 +14,20 @@ export class PackagePageComponent implements OnInit {
   phoneNumber: string;
   userPackages: User[];
   packages: Package[];
-  checkout: Checkout;
+  checkout: Checkout = {
+    packages: []
+  };
 
   constructor(private packagePageService: PackagePageService, private checkoutDataService: CheckoutDataService) { }
 
   ngOnInit() {
+    this.checkoutDataService.currentMessage.subscribe(message => this.checkout = message);
+    if (this.checkout === null) {
+      console.log("null");
+      this.checkout = {
+        packages: []
+      };
+    }
     this.phoneNumber = localStorage.getItem("phoneNumber")
     this.packagePageService.getUser(this.phoneNumber).subscribe(data => {
       this.userPackages = data as User[];
@@ -27,9 +36,18 @@ export class PackagePageComponent implements OnInit {
     });
   }
 
-  addToCheckout(packages: Package) {
-    if(!this.checkout.packages.includes(packages)){
-      this.checkout.packages.push(packages);
+  addToCheckout(paket: Package) {
+    if (this.checkout.packages.length == 0) {
+      this.checkout.packages.push(paket);
+      console.log(paket);
+    } else {
+      console.log("else");
+      this.checkout.packages.forEach((element) => {
+        console.log(element.id);
+        if (element.id !== paket.id) {
+          this.checkout.packages.push(paket);
+        }
+      });
     }
     this.checkoutDataService.changeMessage(this.checkout);
   }
