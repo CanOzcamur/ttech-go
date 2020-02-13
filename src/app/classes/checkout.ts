@@ -1,5 +1,5 @@
 import { Package } from './package';
-import { User } from './user';
+import { User } from './product';
 
 export class Checkout {
     packages:Package[];
