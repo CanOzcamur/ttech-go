@@ -1,11 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
 .buttonStyle{
     border-radius: 20px;
     border: 1px solid rgb(3, 11, 53);
     background-color: white;
     color: rgb(3, 11, 53);
+    font-size: small;
 }
 
 .imgSize{
     width: 10%;
     height: 100%;
+}
+
+.priceText{
+    font-size: x-small;
+    color: rgb(52, 161, 250);
+}
+
+.monthly{
+    color: rgb(30, 53, 255);
+    font-size: small;
+}
+
+div {
+    font-family: 'Merriweather', serif;
 }
