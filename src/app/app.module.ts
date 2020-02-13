@@ -11,6 +11,9 @@ import { PageNotFoundPageComponent } from './pages/page-not-found-page/page-not-
 import { NavbarComponent } from './pages/navbar/navbar.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { CheckoutDataService } from './data/checkout-data.service';
+import { PackageCardComponent } from './components/package-card/package-card.component';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { TotalChartPriceComponent } from './components/total-chart-price/total-chart-price.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { CheckoutDataService } from './data/checkout-data.service';
     CheckoutPageComponent,
     PageNotFoundPageComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    PackageCardComponent,
+    CartItemComponent,
+    TotalChartPriceComponent
   ],
   imports: [
     BrowserModule,

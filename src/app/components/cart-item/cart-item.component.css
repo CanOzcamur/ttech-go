@@ -1,0 +1,11 @@
+.buttonStyle{
+    border-radius: 20px;
+    border: 1px solid rgb(3, 11, 53);
+    background-color: white;
+    color: rgb(3, 11, 53);
+}
+
+.imgSize{
+    width: 10%;
+    height: 100%;
+}

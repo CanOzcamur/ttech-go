@@ -1,0 +1,33 @@
+.topFooter {
+    background-color: rgb(3, 11, 53);
+    height: 40px;
+}
+
+.topMenu {
+    background-color: white;
+    border: 1px solid rgb(197, 189, 189);
+}
+
+#textColor {
+    color: rgb(3, 11, 53);
+}
+
+.menu{
+    padding-left: 33%;
+    height: 30px;
+    border: 1px solid rgb(139, 145, 150);
+}
+
+.textStyle{
+    color: rgb(3, 11, 53);
+    width: 150px;
+}
+
+.btn-circle {
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    padding: 0px 0;
+    font-size: 9px;
+    border-radius: 15px;
+  }
