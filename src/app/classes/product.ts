@@ -1,5 +1,3 @@
-import { Package } from './package';
-import { User } from './user';
 import { Data } from './data';
 
 export class Product {
