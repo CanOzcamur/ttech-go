@@ -10,8 +10,8 @@ export class PackagePageService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getProduct(phoneNumber:string): Observable<Product[]> {
+  getProduct(phoneNumber:string): Observable<Product> {
     //return this.httpClient.get<Product[]>("/api/inquiryPackages?msisdn=" + phoneNumber);
-    return this.httpClient.get<Product[]>("http://www.mocky.io/v2/5e45210e300000e33c614892");
+    return this.httpClient.get<Product>("http://www.mocky.io/v2/5e4534b33000005d3561499a");
   }
 }

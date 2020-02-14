@@ -1,12 +1,15 @@
 import { Package } from './package';
-import { Subscriber } from './subscriber';
+import { User } from './user';
+import { Data } from './data';
 
 export class Product {
-    subscriber: Subscriber;
-    packages: Package[];
+    returnCode: number;
+    returnMsg: string;
+    data: Data;
 
-    constructor(subscriber: Subscriber, packages: Package[]) {
-        this.subscriber = subscriber;
-        this.packages = packages
+    constructor(returnCode: number, returnMsg: string, data: Data) {
+        this.returnCode = returnCode;
+        this.returnMsg = returnMsg;
+        this.data = data
     }
 }

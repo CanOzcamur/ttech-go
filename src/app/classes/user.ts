@@ -1,7 +1,5 @@
-import { Package } from './package';
+export class User {
 
-export class Subscriber {
-    
     id: number;
     msisdn: string;
     name: string;

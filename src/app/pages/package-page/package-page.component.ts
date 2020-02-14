@@ -12,7 +12,7 @@ import { CheckoutDataService } from 'src/app/data/checkout-data.service';
 })
 export class PackagePageComponent implements OnInit {
   phoneNumber: string;
-  products: Product[];
+  products: Product;
   packages: Package[];
   checkout: Checkout = {
     packages: []
@@ -31,8 +31,8 @@ export class PackagePageComponent implements OnInit {
     }
     this.phoneNumber = localStorage.getItem("phoneNumber")
     this.packagePageService.getProduct(this.phoneNumber).subscribe(data => {
-      this.products = data as Product[];
-      this.packages = this.products.packages;
+      this.products = data as Product;
+      this.packages = this.products.data.packages;
       localStorage.setItem("products", JSON.stringify(this.products));
     });
   }
