@@ -1,8 +1,8 @@
 .cardAttributes{
     float: right;
     color: rgb(3, 11, 53);
-    background-color: rgba(228, 228, 5, 0.966);
-    border: yellow;
+    background-color:#ffc107;
+    border: #ffc107;
     border-radius: 20px;
 }
 

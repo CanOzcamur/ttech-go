@@ -5,11 +5,12 @@ import { Checkout } from 'src/app/classes/checkout';
 @Injectable({
   providedIn: 'root'
 })
-export class CheckoutPageService {
+export class TotalChartPriceService {
 
   constructor(private httpClient: HttpClient) { }
 
   postCheckout(checkout: Checkout) {
-    return this.httpClient.post("/checkout", checkout);
+   // return this.httpClient.post("/api/submit", checkout);
+    return this.httpClient.post("https://100.64.25.112/api/submit", checkout);
   }
 }

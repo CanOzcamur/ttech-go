@@ -1,7 +1,8 @@
 .topFooter {
     width: 100%;
     margin: 0 auto;
-    background-color: #2855ac;;
+    background-color: #2855ac;
+    height: 40px;
 }
 
 .topMenu {
@@ -17,7 +18,8 @@
 .menu{
     padding-left: 35%;
     height: 40px;
-    border: 1px solid rgb(139, 145, 150);
+    border: 1px solid white;
+    background-color: white;
 }
 
 .textStyle{
@@ -32,6 +34,7 @@
     padding: 0px 0;
     font-size: 18px;
     border-radius: 5px;
+    margin-bottom:5px
 }
 
 .cart{
