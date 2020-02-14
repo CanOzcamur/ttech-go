@@ -2,26 +2,33 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.25.
 
-## Development server
+## Functionality overview
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+It uses a custom API for all requests, including authentication.
 
-## Code scaffolding
+**General functionality:**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Search users
+- Package display and selection 
+- Adding packages to the cart
+- Shopping cart display
+- Shopping cart transaction (package delete or package confirm)
+- Total price display
+- Display transaction result
 
-## Build
+**How to run project: java -jar ttech-go.jar**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+**The general page breakdown looks like this:**
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- Home page (URL: /user )
+    - Search of user 
+- Display package (URL: /package )
+    - Display packages in package page
+    - User can add product to cart.
+- Add package to cart (URL: /package )
+- Display cart (URL: /checkout )
+- Shopping cart transaction (URL: /checkout )
+    - User can delete to cart.
+    - User can confirm the cart
+- Display transaction result
+    - User can display transaction result

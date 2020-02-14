@@ -1,8 +1,7 @@
 .topFooter {
     width: 100%;
     margin: 0 auto;
-    background-color: rgb(3, 11, 53);
-    height: 40px;
+    background-color: #2855ac;;
 }
 
 .topMenu {
@@ -12,11 +11,12 @@
 
 #textColor {
     color: rgb(3, 11, 53);
+    font-size: x-large;
 }
 
 .menu{
-    padding-left: 36%;
-    height: 30px;
+    padding-left: 35%;
+    height: 40px;
     border: 1px solid rgb(139, 145, 150);
 }
 
@@ -26,10 +26,14 @@
 }
 
 .btn-circle {
-    width: 15px;
-    height: 15px;
+    width: 35px;
+    height: 26px;
     text-align: center;
     padding: 0px 0;
-    font-size: 9px;
-    border-radius: 15px;
-  }
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.cart{
+    float: left;
+}
