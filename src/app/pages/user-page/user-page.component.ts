@@ -13,6 +13,10 @@ export class UserPageComponent implements OnInit {
   }
 
   packageSearch(phoneNumber: string){
+    if(phoneNumber != localStorage.getItem('phoneNumber')){
+      localStorage.clear();
+    }
+    
     localStorage.setItem('phoneNumber', phoneNumber);
   }
 

@@ -9,7 +9,7 @@ import { CheckoutDataService } from 'src/app/data/checkout-data.service';
   styleUrls: ['./cart-item.component.css']
 })
 export class CartItemComponent implements OnInit {
-  @Input() childProduct: Package;
+  @Input() childPackage: Package;
   checkout: Checkout;
   constructor(private checkoutDataService: CheckoutDataService) { }
 
@@ -18,9 +18,11 @@ export class CartItemComponent implements OnInit {
   }
 
   deletePackageFromCheckout(paket:Package){
-    const index: number = this.checkout.packages.indexOf(paket);
-    this.checkout.packages = this.checkout.packages.splice(index,1);
-    this.checkoutDataService.changeMessage(this.checkout);
+    this.checkout.packages.forEach( (item, index) => {
+      if(item === paket) 
+        this.checkout.packages.splice(index,1);
+        this.checkoutDataService.changeMessage(this.checkout);
+    });
   }
 
 }

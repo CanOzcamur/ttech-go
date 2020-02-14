@@ -3,7 +3,7 @@
         <div class="col-md-12">
             <div>
                 <div class="offset-md-11">
-                    <button class="buttonStyle">Sil</button>
+                    <button class="buttonStyle" (click)="deletePackageFromCheckout(childPackage)">Sil</button>
                 </div>
                 <div class="row">
                     <div class="col-md-9">
@@ -11,13 +11,13 @@
                         <img class="imgSize"
                             src="https://s.turkcell.com.tr/SiteAssets/Bireysel/Kampanya/render/gorseller/her-yone-1000-dakika-kampanyasi/her-yone-1000-dakika-kampanyasi_287x215.png"
                             alt="Resim">
-                        <label class="body">{{childProduct.description}}</label>
+                        <label class="body">{{childPackage.description}}</label>
                     </div>
 
                     <div class="col-md-3">
                         <div class="row offset-md-5 textStyle">
 
-                            <label class="monthly">{{childProduct.amount}}</label>
+                            <label class="monthly">{{childPackage.amount}}</label>
                         </div>
                         <div class="row offset-md-9">
 

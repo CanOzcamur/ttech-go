@@ -1,3 +1,6 @@
 <div *ngFor="let package of packages">
-    <app-cart-item [childProduct]="package"></app-cart-item>
+    <app-cart-item [childPackage]="package"></app-cart-item>
+</div>
+<div style= "margin-top:10px">
+    <app-total-chart-price></app-total-chart-price>
 </div>
