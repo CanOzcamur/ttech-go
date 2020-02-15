@@ -16,6 +16,7 @@ export class CheckoutPageComponent implements OnInit {
 
   ngOnInit() {
     this.checkoutDataService.currentMessage.subscribe(message => this.checkout = message);
+    if(this.checkout != null)
     this.packages = this.checkout.packages;
   }
 }

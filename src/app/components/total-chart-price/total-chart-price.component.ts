@@ -30,8 +30,15 @@ export class TotalChartPriceComponent implements OnInit {
   ngOnInit() {
     this.checkoutDataService.currentMessage.subscribe(message => {
       this.checkout = message;
-      this.getProducts();
-      this.show = this.checkout != null ? true : false;
+
+      if (this.checkout == null) {
+        this.show = false;
+      } else if (this.checkout.packages.length == 0) {
+        this.show = false
+      } else {
+        this.show = true;
+        this.getProducts();
+      }
     });
   }
 
