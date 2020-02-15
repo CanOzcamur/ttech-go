@@ -24,6 +24,7 @@ export class TotalChartPriceComponent implements OnInit {
     packages: []
   };
   show: boolean = false;
+  phoneNumber: string;
 
   constructor(private checkoutDataService: CheckoutDataService, private packagePageService: PackagePageService, private totalChartPrice: TotalChartPriceService, private modalService: NgbModal) { }
 
@@ -72,7 +73,9 @@ export class TotalChartPriceComponent implements OnInit {
     this.totalChartPrice.postCheckout(this.requestData).subscribe((response: ApiResponse) => {
       if (response.returnCode == 0) {
         console.log(response.returnMsg);
+        this.phoneNumber = localStorage.getItem("phoneNumber");
         localStorage.clear();
+        localStorage.setItem("phoneNumber", this.phoneNumber);
         this.orderStatus(successOrder);
       } else {
         this.orderStatus(failOrder);
