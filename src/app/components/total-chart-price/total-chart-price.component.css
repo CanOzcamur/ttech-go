@@ -14,3 +14,29 @@
 .textBackgroundColor{
     background-color:  #e7e9eb;
 }
+
+.card {
+    margin-bottom: 5px;
+    border: 0px solid rgba(0,0,0,.125);
+}
+
+.card-header {
+    border-bottom: 0px solid rgba(0,0,0,.125);
+}
+
+.accordion .card-header:after  {
+    font-family: 'Font Awesome\ 5 Free';  
+    content: "\f146";
+    float: left; 
+    font-weight: 900;
+    color: orange;
+}
+.accordion .card-header.collapsed:after{
+    content: "\f0fe"; 
+    font-weight: 900;
+    color: #9bccea;
+}
+
+.light-blue-backdrop {
+    background-color: #5cb3fd;
+  }

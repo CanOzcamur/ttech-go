@@ -1,6 +1,5 @@
 import { User } from './user';
 import { Package } from './package';
-
 export class ApiRequest {
     subscriber: User;
     packages: Package[];
@@ -10,4 +9,3 @@ export class ApiRequest {
         this.packages = packages;
     }
 }
-

@@ -5,12 +5,10 @@ import { PackagePageService } from 'src/app/pages/package-page/package-page.serv
 import { Product } from 'src/app/classes/product';
 import { TotalChartPriceService } from './total-chart-price.service';
 import { ApiResponse } from 'src/app/classes/ApiResponse';
-import { ApiRequest } from 'src/app/classes/apiRequest';
-import { Data } from 'src/app/classes/data';
-import { Subscriber } from 'rxjs';
-import { Package } from 'src/app/classes/package';
+import { ApiRequest } from "src/app/classes/ApiRequest";
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { User } from 'src/app/classes/user';
-
+import { Package } from 'src/app/classes/package';
 @Component({
   selector: 'app-total-chart-price',
   templateUrl: './total-chart-price.component.html',
@@ -19,22 +17,30 @@ import { User } from 'src/app/classes/user';
 export class TotalChartPriceComponent implements OnInit {
   checkout: Checkout;
   products: Product;
+  packages: Package[] = [];
   totalAmount: number = 0;
-  request: ApiRequest;
-  constructor(private checkoutDataService: CheckoutDataService, private packagePageService: PackagePageService, private totalChartPrice: TotalChartPriceService) { }
+  requestData: ApiRequest = {
+    subscriber: {} as User,
+    packages: []
+  };
+  show: boolean = false;
+
+  constructor(private checkoutDataService: CheckoutDataService, private packagePageService: PackagePageService, private totalChartPrice: TotalChartPriceService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.checkoutDataService.currentMessage.subscribe(message => {
       this.checkout = message;
       this.getProducts();
+      this.show = this.checkout != null ? true : false;
     });
   }
 
-  calculateTotalAmount() {
+  calculateTotalAmountAndPackages() {
     this.products.data.packages.forEach((serviceElement) => {
       this.checkout.packages.forEach((checkoutElement) => {
         if (serviceElement.id === checkoutElement.id) {
           this.totalAmount += serviceElement.amount;
+          this.packages.push(serviceElement);
         }
       })
     });
@@ -47,18 +53,37 @@ export class TotalChartPriceComponent implements OnInit {
       (err) => console.error(err),
       () => {
         this.totalAmount = 0;
-        this.calculateTotalAmount();
+        this.packages = [];
+        this.calculateTotalAmountAndPackages();
       });
   }
 
-  purchaseOrder() {
-    this.request.subscriber = this.products.data.subscriber;
-    this.request.packages = this.products.data.packages
+  purchaseOrder(successOrder, failOrder) {
+    this.requestData.subscriber = this.products.data.subscriber;
+    this.requestData.packages = this.packages;
 
-    this.totalChartPrice.postCheckout(this.request).subscribe((response: ApiResponse) => {
-      if (response.returnCode === 0) {
+    this.totalChartPrice.postCheckout(this.requestData).subscribe((response: ApiResponse) => {
+      if (response.returnCode == 0) {
         console.log(response.returnMsg);
+        localStorage.clear();
+        this.orderStatus(successOrder);
+      } else {
+        this.orderStatus(failOrder);
       }
     });
+  }
+
+  openDocumentDialog(content) {
+    this.modalService.open(content, { size: 'sm' });
+  }
+
+  openContractText(content) {
+    this.modalService.dismissAll();
+    this.modalService.open(content, { size: 'xl' });
+  }
+
+  orderStatus(content) {
+    this.modalService.dismissAll();
+    this.modalService.open(content, { backdropClass: 'light-blue-backdrop' });
   }
 }

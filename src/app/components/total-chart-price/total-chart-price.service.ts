@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Checkout } from 'src/app/classes/checkout';
+import { ApiRequest } from 'src/app/classes/ApiRequest';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +9,8 @@ export class TotalChartPriceService {
 
   constructor(private httpClient: HttpClient) { }
 
-  postCheckout(checkout: Checkout) {
+  postCheckout(requestData: ApiRequest) {
    // return this.httpClient.post("/api/submit", checkout);
-    return this.httpClient.post("https://100.64.25.112/api/submit", checkout);
+    return this.httpClient.post("/api/submit", requestData);
   }
 }

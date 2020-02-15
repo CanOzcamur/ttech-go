@@ -1,4 +1,4 @@
-<div class="container card shadow bg-white rounded">
+<div class="container card shadow bg-white rounded" *ngIf="show">
     <div class="row">
         <div class="textBackgroundColor col-md-2">
             <label for="" class="textPosition">TOPLAM TUTAR</label>
@@ -11,7 +11,7 @@
                 </div>
                 <div>
                     <label>{{totalAmount}} &nbsp; TL/AY</label>
-                    <button class="cardAttributes" (click)="purchaseOrder()">İşlemi Yap</button>
+                    <button class="cardAttributes" (click)="openDocumentDialog(documentDialog)">İşlemi Yap</button>
                 </div>
                 <div class="offset-md-2">
                     <label style="font-size: x-small;">KDV DAHİL</label>
@@ -20,3 +20,126 @@
         </div>
     </div>
 </div>
+
+<ng-template #documentDialog let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" style="color:#8ec7ea">Müşteri Teyidi</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+            <label class="custom-control-label" for="customRadio1">SMS ile Teyit</label>
+        </div>
+        <div class="custom-control custom-radio">
+            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+            <label class="custom-control-label" for="customRadio2">Evrak ile Teyit&nbsp;&nbsp;<button type="button"
+                    class="btn btn-warning btn-sm">Yazdır</button></label>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-warning" (click)="openContractText(contractText)">Tamam</button>
+    </div>
+</ng-template>
+
+<ng-template #contractText let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" style="color:#8ec7ea">Müşteri Teyidi</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div id="accordion" class="accordion">
+            <div class="card">
+                <div class="card-header collapsed" style="color:#9bccea" data-toggle="collapse" href="#collapseOne">
+                    <a class="card-title">&nbsp;Sözleşme Bilgileri</a>
+                </div>
+
+                <div id="collapseOne" class="collapse collapsed" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                        3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
+                        laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin
+                        coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
+                        anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard
+                        of them accusamus labore sustainable VHS.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header collapsed" style="color:#9bccea" data-toggle="collapse" href="#collapseTwo">
+                    <a class="card-title">&nbsp;Teklif Detayı Bilgileri</a>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                        3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
+                        laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin
+                        coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
+                        anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard
+                        of them accusamus labore sustainable VHS.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-warning" (click)="orderStatus(lastCall)">Tamam</button>
+    </div>
+</ng-template>
+
+<ng-template #lastCall let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Bilgi</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
+            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
+            Aldus PageMaker including versions of Lorem Ipsum.</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-warning" (click)="purchaseOrder(successOrder, failOrder)">Tamam</button>
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Vazgeç</button>
+    </div>
+</ng-template>
+
+<ng-template #successOrder let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">İşlem Sonucu</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>İşlem başarıyla gerçekleşti.&hellip;</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Tamam</button>
+    </div>
+</ng-template>
+
+<ng-template #failOrder let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">İşlem Sonucu</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>İşlem başarısız.&hellip;</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Çıkış</button>
+    </div>
+</ng-template>

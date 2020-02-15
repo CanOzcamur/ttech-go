@@ -9,11 +9,11 @@ import { PackagePageComponent } from './pages/package-page/package-page.componen
 import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
 import { PageNotFoundPageComponent } from './pages/page-not-found-page/page-not-found-page.component';
 import { NavbarComponent } from './pages/navbar/navbar.component';
-import { FooterComponent } from './pages/footer/footer.component';
 import { CheckoutDataService } from './data/checkout-data.service';
 import { PackageCardComponent } from './components/package-card/package-card.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { TotalChartPriceComponent } from './components/total-chart-price/total-chart-price.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function setupLocalStorageFactory(checkoutDataService: CheckoutDataService): Function {
 
@@ -31,7 +31,6 @@ export function setupLocalStorageFactory(checkoutDataService: CheckoutDataServic
     CheckoutPageComponent,
     PageNotFoundPageComponent,
     NavbarComponent,
-    FooterComponent,
     PackageCardComponent,
     CartItemComponent,
     TotalChartPriceComponent
@@ -39,7 +38,8 @@ export function setupLocalStorageFactory(checkoutDataService: CheckoutDataServic
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [CheckoutDataService,
     {
