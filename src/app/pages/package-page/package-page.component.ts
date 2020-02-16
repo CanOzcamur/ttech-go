@@ -11,9 +11,21 @@ import { CheckoutDataService } from 'src/app/data/checkout-data.service';
   styleUrls: ['./package-page.component.css']
 })
 export class PackagePageComponent implements OnInit {
+
+  cards :any;
+  slides: any = [[]];
+
+  chunk(arr, chunkSize) {
+    let R = [];
+    for (let i = 0, len = arr.length; i < len; i += chunkSize) {
+      R.push(arr.slice(i, i + chunkSize));
+    }
+    return R;
+  }
   phoneNumber: string;
   products: Product;
   packages: Package[];
+  yedekPaket:Package[];
   checkout: Checkout = {
     packages: []
   };
@@ -22,23 +34,67 @@ export class PackagePageComponent implements OnInit {
   constructor(private packagePageService: PackagePageService, private checkoutDataService: CheckoutDataService) { }
 
   ngOnInit() {
+    
+ 
+   
     this.checkoutDataService.currentMessage.subscribe(message => this.checkout = message);
+   
     if (this.checkout === null) {
-      console.log("null");
       this.checkout = {
         packages: []
       };
     }
+
     this.phoneNumber = localStorage.getItem("phoneNumber")
     this.packagePageService.getProduct(this.phoneNumber).subscribe(data => {
+     
       this.products = data as Product;
       this.packages = this.products.data.packages;
+
+      this.yedekPaket = this.products.data.packages;
+      for(let i=0;i<this.yedekPaket.length;i++){
+          this.yedekPaket[i]["img"]=this.randomImgUrl(this.yedekPaket[i].name);
+      }
+
+
+
+      // paket sayisinin 3ün kati olmadığı durumlarda (ornegin 8) 
+      // 3 3 2 product gorunecektir. daha efektif bir goruntu sağlamak adina 
+      // card sayisi 3 e tamamlandi.fazladan eklenen product rastgele secildi.
+      
+      this.cards=this.yedekPaket;
+      let modCardCount=this.yedekPaket.length%3;
+      if(modCardCount!=0){
+        let copyCount=3-modCardCount;
+        for(let i=1;i<=copyCount;i++){
+          let num=Math.floor(Math.random() * this.yedekPaket.length);
+          this.cards.push(this.yedekPaket[num]);
+        }
+      }
+
+
+    
+      this.slides = this.chunk(this.cards, 3);
+      
+
       localStorage.setItem("products", JSON.stringify(this.products));
     });
+
+   
+
   }
 
-  addToCheckout(paket: Package) {
+  addToCheckout(newPackage: any) {
+ 
+    //eklenen resimler silindi.
+    delete newPackage.img;
+
     this.flag = true;
+    let paket:Package;
+
+    //sepete eklenen data alindi.
+    paket=newPackage;
+
     if (this.checkout.packages.length == 0) {
       this.checkout.packages.push(paket);
     } else {
@@ -54,4 +110,47 @@ export class PackagePageComponent implements OnInit {
     }
     this.checkoutDataService.changeMessage(this.checkout);
   }
+
+  randomImgUrl(a:string){
+    let ImgList=[
+      {
+        name:"platinum",
+        link:[
+          "https://s2.turkcell.com.tr/SiteAssets/Video/render/platinum-black.PNG",
+          "https://s2.turkcell.com.tr/SiteAssets/Video/render/platinum-black.PNG"
+    
+          ]
+    },
+    {
+      name:"bip",
+      link:[
+        "https://s2.turkcell.com.tr/SiteAssets/Video/render/bip.PNG",
+        "https://i1.wp.com/teknoyo.com/wp-content/uploads/2015/05/turkcell-bip-ozellikleri.png?fit=2048%2C1024",
+        ]
+    },
+    {
+      name:"tv+",
+      link:[
+        "https://cdn.iha.com.tr/Contents/images/2017/35/2156641.jpg",
+        "https://eventoftech.com/wp-content/uploads/2020/01/tv-plus.jpg"
+
+      
+        ]
+    },
+    {
+      name:"fizy",
+      link:[
+        "https://i.ytimg.com/vi/IlPg5-8mOLI/maxresdefault.jpg",
+        "https://i2.milimaj.com/i/milliyet/75/0x410/5ca1cef545d2a029641d2d24.jpg"
+        ]
+    }
+  ];
+   let num=Math.floor(Math.random() * 2);
+   for(let i=0;i<ImgList.length;i++){
+    if(ImgList[i].name==a){
+      return ImgList[i].link[num];
+    }
+   }
+  }
+  
 }

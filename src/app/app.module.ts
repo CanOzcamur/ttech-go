@@ -14,7 +14,7 @@ import { PackageCardComponent } from './components/package-card/package-card.com
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { TotalChartPriceComponent } from './components/total-chart-price/total-chart-price.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 export function setupLocalStorageFactory(checkoutDataService: CheckoutDataService): Function {
 
   if (localStorage.getItem('checkout') !== null) {
@@ -39,7 +39,8 @@ export function setupLocalStorageFactory(checkoutDataService: CheckoutDataServic
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    MDBBootstrapModule
   ],
   providers: [CheckoutDataService,
     {
