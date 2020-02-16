@@ -1,31 +1,28 @@
-<div class="container card shadow bg-white rounded" style="margin-top:10px;margin-top:10px">
-    <div class="card-body">
-        <div class="col-md-12">
-            <div>
-                <div class="offset-md-11">
-                    <button class="buttonStyle" (click)="deletePackageFromCheckout(childPackage)">Sil</button>
-                </div>
-                <div class="row">
-                    <div class="col-md-9">
+<div class="container" style="padding-top: 10px;">
+    <div class="row">
+        <div class="[ col-xs-12 col-sm-12 col-sm-12 ]">
+            <ul class="event-list">
+                <li>
+                    <time datetime="2014-07-20 2000">
+                        <span class="day">Dijital Servis</span>
+                    </time>
 
-                        <img class="imgSize"
-                            src="https://s.turkcell.com.tr/SiteAssets/Bireysel/Kampanya/render/gorseller/her-yone-1000-dakika-kampanyasi/her-yone-1000-dakika-kampanyasi_287x215.png"
-                            alt="Resim">
-                        <label class="body">{{childPackage.description}}</label>
+                    <img class="imgSize"
+                        src="https://s.turkcell.com.tr/SiteAssets/Bireysel/Kampanya/render/gorseller/her-yone-1000-dakika-kampanyasi/her-yone-1000-dakika-kampanyasi_287x215.png"
+                        alt="Resim">
+                    <div class="info">
+                        <h2 class="title">{{childPackage.name}}</h2>
+                        <p class="desc">{{childPackage.description}}</p>
                     </div>
-
-                    <div class="col-md-3">
-                        <div class="row offset-md-8 textStyle">
-
-                            <label class="monthly">{{childPackage.amount}}</label>
-                        </div>
-                        <div class="row offset-md-8">
-
-                            <label class="priceText">TL/Ay</label>
-                        </div>
+                    <div class="social">
+                        <ul>
+                            <li style="padding: 5px 0px 3px;padding-left:23%;padding-right:23%;font-size: 9px;"><button class="buttonStyle" (click)="deletePackageFromCheckout(childPackage)">Değiştir</button></li>
+                            <li style="padding: 5px 0px 3px;font-weight: 900;font-size: 9px;padding-right:23%;">Aylık Ödenecek Tutar</li>
+                            <li  style="padding: 5px 0px 3px;color: #4aa9f8;padding-right:23%;font-size: 11px;"><span style="font-weight: 900;color: #5e8ec6;font-size: 21px;">{{childPackage.amount}}</span>&nbsp;TL/Ay Kdv Dahil</li>
+                        </ul>
                     </div>
-                </div>
-            </div>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
