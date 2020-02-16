@@ -96,4 +96,9 @@ export class TotalChartPriceComponent implements OnInit {
     this.modalService.dismissAll();
     this.modalService.open(content, { backdropClass: 'light-blue-backdrop' });
   }
+
+  refreshPage(){
+    this.modalService.dismissAll();
+    window.location.reload();
+  }
 }

@@ -125,7 +125,7 @@
         <p>İşlem başarıyla gerçekleşti.&hellip;</p>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Tamam</button>
+        <button type="button" class="btn btn-light" (click)="refreshPage()">Tamam</button>
     </div>
 </ng-template>
 
@@ -140,6 +140,6 @@
         <p>İşlem başarısız.&hellip;</p>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Çıkış</button>
+        <button type="button" class="btn btn-light" (click)="refreshPage()">Çıkış</button>
     </div>
 </ng-template>
