@@ -15,6 +15,24 @@
     color: aliceblue;
     font-size:large;
 }
+@media (max-width: 400px) {
+    #textColor {
+      
+        font-size:small;
+    }
+  }
+
+
+@media (max-width: 320px) {
+    #textColor {
+      
+        font-size:x-small;
+    }
+    .cart{
+        margin-top: 4px;
+    }
+
+  }
 
 .menu{
     padding-left: 35%;
