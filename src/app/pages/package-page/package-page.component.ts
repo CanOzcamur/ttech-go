@@ -86,9 +86,7 @@ export class PackagePageComponent implements OnInit {
 
   addToCheckout(newPackage: any) {
  
-    //eklenen resimler silindi.
-    delete newPackage.img;
-
+  
     this.flag = true;
     let paket:Package;
 
