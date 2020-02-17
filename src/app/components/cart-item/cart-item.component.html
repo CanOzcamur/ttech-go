@@ -8,7 +8,7 @@
                     </time>
 
                     <img class="imgSize"
-                        src="https://s.turkcell.com.tr/SiteAssets/Bireysel/Kampanya/render/gorseller/her-yone-1000-dakika-kampanyasi/her-yone-1000-dakika-kampanyasi_287x215.png"
+                        src="{{childPackage.img}}"
                         alt="Resim">
                     <div class="info">
                         <h2 class="title">{{childPackage.name}}</h2>
@@ -21,6 +21,17 @@
                             <li style="padding: 5px 0px 3px;color: #4aa9f8;padding-right:23%;font-size: 11px;"><span style="font-weight: 900;color: #5e8ec6;font-size: 21px;">{{childPackage.amount}}</span>&nbsp;TL/Ay Kdv Dahil</li>
                         </ul>
                     </div>
+
+                    <div class="liste">
+                        <hr style="padding-top: 5px;padding-bottom: 5px;">
+                        <div class="row justify-content-center">
+                            <div class="col-3">  <button class="buttonStyle" style="padding: 10px; margin-top: 5px;"(click)="deletePackageFromCheckout(childPackage)">Değiştir</button></div>
+                                <div class="col-3"> Aylık Ödenecek Tutar</div>
+                                    <div class="col-3"> <span style="font-weight: 900;color: #5e8ec6;font-size: 21px;">{{childPackage.amount}}</span>&nbsp;TL/Ay Kdv Dahil</div>
+                        </div>
+                    </div>
+
+
                 </li>
             </ul>
         </div>

@@ -1,1 +1,28 @@
 @import url('https://fonts.googleapis.com/css?family=Crete+Round&display=swap');
+
+
+
+
+@media (min-width: 769px) {
+    
+    .imgSize{
+      width: 20% !important;
+    }
+  }
+
+
+
+  @media (max-width: 653px) {
+    .day{
+        display:none !important;
+    }
+    .social{
+      display: none;
+    }
+    
+  }
+  @media (min-width: 654px) {
+   .liste{
+     display: none;
+   }
+  }
