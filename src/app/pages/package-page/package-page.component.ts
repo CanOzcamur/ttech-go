@@ -143,6 +143,32 @@ export class PackagePageComponent implements OnInit {
         "https://i2.milimaj.com/i/milliyet/75/0x410/5ca1cef545d2a029641d2d24.jpg"
         ]
     }
+    ,
+    {
+      name:"dergilik",
+      link:[
+        "https://s2.turkcell.com.tr/SiteAssets/Bireysel/Kampanya/render/gorseller/Dergilik-1GB-Kampanya-Gorseli.jpg",
+        "https://www.mobil13.com/wp-content/uploads/2019/07/Turkcell-Dergilik.jpg"
+        ]
+    }
+    ,
+    {
+      name:"lifebox",
+      link:[
+        "https://www.teknotalk.com/wp-content/uploads/2016/11/lifebox.jpg",
+        "https://www.teknotalk.com/wp-content/uploads/2016/11/lifebox.jpg"
+        ]
+    }
+    ,
+    {
+      name:"gollercepte",
+      link:[
+        "https://turk-internet.com/wp-content/uploads/2019/05/goller-cepte-turkcell-ticom.jpg",
+        "https://turk-internet.com/wp-content/uploads/2019/05/goller-cepte-turkcell-ticom.jpg"
+        ]
+    }
+
+
   ];
    let num=Math.floor(Math.random() * 2);
    for(let i=0;i<ImgList.length;i++){
