@@ -40,7 +40,7 @@ export function setupLocalStorageFactory(checkoutDataService: CheckoutDataServic
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    MDBBootstrapModule
+    MDBBootstrapModule.forRoot()
   ],
   providers: [CheckoutDataService,
     {

@@ -16,11 +16,13 @@ It uses a custom API for all requests, including authentication.
 - Total price display
 - Display transaction result
 
-**How to compile project: ng build**
+How to install project: **npm install**
+
+How to compile project: **ng build**
 
 Generated resources are on the dist folder, then move these resources to Backends resources/static folder.
 
-**How to run project: ng serve**
+How to run project: **ng serve**
 
 Api's and url will not work because of Browsers Cross Origin Problem, backend runs on 8080 port, angular runs on 4200 port.
 
