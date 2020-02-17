@@ -89,7 +89,7 @@ export class PackagePageComponent implements OnInit {
   
     this.flag = true;
     let paket:Package;
-    delete newPackage.img;
+   
 
     //sepete eklenen data alindi.
     paket=newPackage;
