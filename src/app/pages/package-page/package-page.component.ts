@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { PackagePageService } from './package-page.service';
+import { PackagePageService } from 'src/app/services/package-page.service';
 import { Product } from 'src/app/classes/product';
 import { Package } from 'src/app/classes/package';
 import { Checkout } from 'src/app/classes/checkout';
-import { CheckoutDataService } from 'src/app/data/checkout-data.service';
+import { CheckoutDataService } from 'src/app/services/checkout-data.service';
 
 @Component({
   selector: 'app-package-page',
@@ -58,8 +58,8 @@ export class PackagePageComponent implements OnInit {
 
 
 
-      // paket sayisinin 3ün kati olmadığı durumlarda (ornegin 8) 
-      // 3 3 2 product gorunecektir. daha efektif bir goruntu sağlamak adina 
+      // product sayisinin 3ün kati olmadığı durumlarda (ornegin 8) 
+      // genis ekranda 3 3 2 product gorunecektir. daha efektif bir goruntu sağlamak adina 
       // card sayisi 3 e tamamlandi.fazladan eklenen product rastgele secildi.
       
       this.cards=this.yedekPaket;

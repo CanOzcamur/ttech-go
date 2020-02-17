@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Package } from 'src/app/classes/package';
 import { Checkout } from 'src/app/classes/checkout';
-import { CheckoutDataService } from 'src/app/data/checkout-data.service';
+import { CheckoutDataService } from 'src/app/services/checkout-data.service';
 
 @Component({
   selector: 'app-cart-item',

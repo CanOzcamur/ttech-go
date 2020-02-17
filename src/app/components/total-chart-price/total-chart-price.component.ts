@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CheckoutDataService } from 'src/app/data/checkout-data.service';
+import { CheckoutDataService } from 'src/app/services/checkout-data.service';
 import { Checkout } from 'src/app/classes/checkout';
-import { PackagePageService } from 'src/app/pages/package-page/package-page.service';
+import { PackagePageService } from 'src/app/services/package-page.service';
 import { Product } from 'src/app/classes/product';
-import { TotalChartPriceService } from './total-chart-price.service';
+import { TotalChartPriceService } from '../../services/total-chart-price.service';
 import { ApiResponse } from 'src/app/classes/ApiResponse';
 import { ApiRequest } from "src/app/classes/ApiRequest";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';

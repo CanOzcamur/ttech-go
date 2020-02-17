@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CheckoutDataService } from 'src/app/data/checkout-data.service';
+import { CheckoutDataService } from 'src/app/services/checkout-data.service';
 import { Checkout } from 'src/app/classes/checkout';
 import { Package } from 'src/app/classes/package';
 
