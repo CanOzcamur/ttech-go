@@ -89,6 +89,7 @@ export class PackagePageComponent implements OnInit {
   
     this.flag = true;
     let paket:Package;
+    delete newPackage.img;
 
     //sepete eklenen data alindi.
     paket=newPackage;
@@ -114,16 +115,16 @@ export class PackagePageComponent implements OnInit {
       {
         name:"platinum",
         link:[
-          "https://s2.turkcell.com.tr/SiteAssets/Video/render/platinum-black.PNG",
-          "https://s2.turkcell.com.tr/SiteAssets/Video/render/platinum-black.PNG"
+          "https://foto.haberler.com/haber/2017/05/27/turkcell-platinum-musterilerine-ozel-firsatlar-9664732_6690_amp.jpg",
+          "https://foto.haberler.com/haber/2017/05/27/turkcell-platinum-musterilerine-ozel-firsatlar-9664732_6690_amp.jpg"
     
           ]
     },
     {
       name:"bip",
       link:[
-        "https://s2.turkcell.com.tr/SiteAssets/Video/render/bip.PNG",
-        "https://i1.wp.com/teknoyo.com/wp-content/uploads/2015/05/turkcell-bip-ozellikleri.png?fit=2048%2C1024",
+        "https://www.technopat.net/wp-content/uploads/2019/06/turkcell.jpg",
+        "https://www.technopat.net/wp-content/uploads/2019/06/turkcell.jpg",
         ]
     },
     {
